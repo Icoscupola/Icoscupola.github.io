@@ -13,12 +13,79 @@ body {
   padding: 20px;
   width: fit-content;
   margin: 100px auto;
+}
+.over {
+  display: none;
+  inset: 0;
+  position: fixed;
+  background: #00000080;
+  align-items: center;
+  z-index: 10
+  justify-content: center;
+}
+.over.show { display: flex; }
+.pop {
+  backround: #c0c0c0;
+  border: 3px outset #ffffff;
+  min-width: 100px;
+  box-shadow: 4px 4px #000000;
+}
+.poptitle {
+  background: linear-gradient(to right, #000080, #0080ff);
+  color: #000000;
+  padding: 8px 8px;
+}
+.ok {
+  background: #c0c0c0;
+  border: 3px outset #ffffff;
+}
+.ok:active { border-style: inset; }
+.poppet {
+  text-align: center;
+  font-family: "Courier New";
+}
 </style>
 </head>
 <body>
   <div class="box">
     <h1>Error 418.</h1>
     <p>I'm a teapot.</p>
+    <img src="song.png" onclick="sodapop()">
   </div>
+  <div class="over" id="over">
+    <div class="pop">
+      <div class="poptitle">TEAPOT</div>
+      <div class="poppet">
+        <p style="font-family: 'Courier New'; font-weight: bold;">
+          You see, this image was going to play "I'm a Little Teapot",
+          because... you know. But unfortunately, "I'm a Little Teapot"
+          is currently not public domain in the US, until 2035.
+          In other places, the years differ when it will be in the public domain.
+        </p>
+        <button class="ok" onclick="popsoda()">OK</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    function sodapop() {
+      document.getElementById('over').classList.add('show')
+    }
+    function popsoda() {
+      document.getElementById('over').classList.remove('show')
+    }
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
